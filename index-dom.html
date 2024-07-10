@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <form action="">
+        <input type="text" />
+        <button type="submit">ㅇㅇ</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    // 루트 부분 스타일링
+    const root = document.getElementById("root");
+    root.style.width = "90rem";
+    root.style.height = "64rem";
+    root.style.display = "flex";
+    root.style.justifyContent = "center";
+    root.style.alignItems = "center";
+    root.style.margin = "auto";
+    root.style.backgroundColor = "#f0f0f0";
+
+    // 폼 부분 생성 후 스타일링
+    const form = document.querySelector("form:first-child");
+    form.style.width = "29.625rem";
+    form.style.height = "34.875rem";
+    form.style.background = "#4b4b4b";
+    form.style.display = "flex";
+    form.style.flexDirection = "column";
+    form.style.alignItems = "center";
+    form.style.justifyContent = "space-around";
+    form.style.padding = "1rem";
+
+    // 인풋 부분 생성 후 스타일링
+    const input = document.querySelector("input:first-child");
+    input.type = "text";
+    input.placeholder = "Input";
+    input.style.width = "17.75rem";
+    input.style.height = "6.25rem";
+    input.style.background = "#d9d9d9";
+    input.style.border = "none";
+    input.style.padding = "0.5rem";
+    input.style.fontSize = "1rem";
+
+    // 버튼 부분 생성 후 스타일링
+    const button = document.querySelector("form:first-child > button");
+    button.type = "submit";
+    button.textContent = "ㅇㅇ";
+    button.style.width = "11.1875rem";
+    button.style.height = "4.9375rem";
+    button.style.background = "#ceb65f";
+    button.style.border = "none";
+    button.style.color = "white";
+    button.style.fontSize = "1rem";
+    button.style.cursor = "pointer";
+  </script>
+</html>

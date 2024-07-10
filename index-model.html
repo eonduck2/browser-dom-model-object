@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const rootStyle = {
+      width: "90rem",
+      height: "64rem",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "auto",
+      backgroundColor: "#f0f0f0",
+    };
+    const formStyle = {
+      width: "29.625rem",
+      height: "34.875rem",
+      display: "flex",
+      justifyContent: "space-around",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "1rem",
+      backgroundColor: "#4b4b4b",
+    };
+    const inputStyle = {
+      width: "17.75rem",
+      height: "6.25rem",
+      type: "text",
+      justifyContent: "center",
+      placeholder: "Input",
+      alignItems: "center",
+      padding: "0.5rem",
+      border: "none",
+      fontSize: "1rem",
+      backgroundColor: "#d9d9d9",
+    };
+    const buttonStyle = {
+      type: "submit",
+      textContent: "ㅇㅇ",
+      width: "11.1875rem",
+      height: "4.9375rem",
+      fontSize: "1rem",
+      color: "white",
+      border: "none",
+      backgroundColor: "#ceb65f",
+      cursor: "pointer",
+    };
+
+    function elementMaker(tagName, styles, textContent) {
+      const element = document.createElement(tagName);
+
+      for (let value in styles) {
+        element.style[value] = styles[value];
+      }
+
+      element.textContent = textContent;
+
+      return element;
+    }
+
+    const root = elementMaker("div", rootStyle);
+    root.id = "root";
+    const form = elementMaker("form", formStyle);
+    const input = elementMaker("input", inputStyle);
+    const btn = elementMaker("button", buttonStyle, "ㅎㅇ");
+    console.log(btn);
+    document.querySelector("body").appendChild(root);
+    document.getElementById("root").appendChild(form);
+    document.querySelector("form").appendChild(input);
+    document.querySelector("form").appendChild(btn);
+  </script>
+</html>

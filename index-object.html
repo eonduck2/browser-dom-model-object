@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const elementData = {
+        elements: {
+          div: "div",
+          input: "input",
+          button: "button",
+        },
+
+        root: {
+          id: "root",
+          styles: {
+            width: "",
+            height: "100vh",
+            backgroundColor: "#fff",
+          },
+        },
+
+        login: {
+          id: "login",
+          styles: {
+            width: "30vw",
+            height: "50vh",
+            backgroundColor: "#333",
+            padding: "10px",
+          },
+        },
+        input: {
+          id: "",
+          styles: {
+            width: "80%",
+            height: "24px",
+            backgroundColor: "#D9D9D9",
+          },
+          textNode: {
+            text: "input",
+          },
+        },
+
+        submit: {
+          id: "",
+          styles: {
+            width: "80%",
+            height: "24px",
+            backgroundColor: "#9AFF92",
+          },
+          textNode: {
+            text: "submit",
+          },
+        },
+
+        defaultStyles: {
+          width: 100,
+          height: 100,
+          backgroundColor: "",
+        },
+
+        widthDecision: function (value, callback) {
+          return callback(value);
+        },
+        heightDecision: function (value, callback) {
+          return callback(value);
+        },
+        backgroundColorDecision: function (value, callback) {
+          return callback(value);
+        },
+      };
+
+      elementData.root.styles.width = elementData.widthDecision(
+        elementData.defaultStyles.width,
+        (value) => {
+          return value + "vw";
+        }
+      );
+
+      elementData.root.styles.height = elementData.widthDecision(
+        elementData.defaultStyles.height,
+        (value) => {
+          return value + "vh";
+        }
+      );
+
+      function elementMaker(tagName, styles, textContent) {
+        const element = document.createElement(tagName);
+        for (let value in styles) {
+          element.style[value] = styles[value];
+        }
+        element.textContent = textContent;
+        return element;
+      }
+
+      const body = document.querySelector("body");
+
+      body.appendChild(
+        elementMaker(elementData.elements.div, elementData.root.styles)
+      );
+
+      body.children[1].id = elementData.root.id;
+
+      //   id = root 요소 서칭
+      const root = document.getElementById(elementData.root.id);
+
+      //   서칭된 root 요소에 다른 요소를 만듦과 동시에 어펜딩 및 식별자 지정
+      root.appendChild(
+        elementMaker(elementData.elements.div, elementData.login.styles)
+      );
+      root.children[0].id = elementData.login.id;
+
+      //   지정된 식별자를 통해 요소 서칭
+      const login = document.getElementById(elementData.login.id);
+
+      //   서칭된 요소에 특정 요소(인풋 역할)을 만들면서 어펜딩
+      login.appendChild(
+        elementMaker(
+          elementData.elements.div,
+          elementData.input.styles,
+          elementData.input.textNode.text
+        )
+      );
+
+      //   서칭된 요소에 특정 요소(제출 역할)을 만들면서 어펜딩
+      login.appendChild(
+        elementMaker(
+          elementData.elements.div,
+          elementData.submit.styles,
+          elementData.submit.textNode.text
+        )
+      );
+    </script>
+  </body>
+</html>
